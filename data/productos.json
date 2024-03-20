@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "A54",
+        "description": "Celular Samsung",
+        "price": "800000",
+        "thumbnail": "https://samsung/a54.com",
+        "code": "hjms45",
+        "stock": 6
+    },
+    {
+        "id": 2,
+        "title": "A53",
+        "description": "Celular Samsung",
+        "price": "750000",
+        "thumbnail": "https://samsung/a53.com",
+        "code": "hjms48",
+        "stock": 8
+    },
+    {
+        "id": 3,
+        "title": "A30",
+        "description": "Celular Samsung",
+        "price": "490000",
+        "thumbnail": "https://samsung/a30.com",
+        "code": "hjms28",
+        "stock": 12
+    },
+    {
+        "id": 4,
+        "title": "producto prueba",
+        "description": "Este es un producto prueba",
+        "price": "200",
+        "thumbnail": "https://",
+        "code": "abc123",
+        "stock": 25
+    }
+]
