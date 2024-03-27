@@ -1,4 +1,5 @@
-const fs = require("fs");
+import fs from "fs";
+
 
 class ProductManager {
     #path;
@@ -6,7 +7,7 @@ class ProductManager {
     static idProducto = 0;
 
     constructor() {
-        this.#path = "./data/productos.json";
+        this.#path = "./src/data/productos.json";
         this.#products = this.#leerProductosExistentes();
     }
 
@@ -27,10 +28,10 @@ class ProductManager {
 
     #asignarIdProducto() {
         let id = 1;
-        if (this.#products.length != 0) { 
-            id = this.#products[this.#products.length - 1].id + 1; 
+        if (this.#products.length != 0) {
+            id = this.#products[this.#products.length - 1].id + 1;
         }
-        return id; 
+        return id;
     }
 
     #guardarArchivos() {
@@ -69,8 +70,13 @@ class ProductManager {
         return "¡Producto agregado con exito!";
     }
 
-    getProducts() {
-        return this.#products;
+    getProducts(limit = 0) {
+        limit = Number(limit);
+        if (limit > 0) {
+            return this.#products.slice(0, limit);
+        } else {
+            return this.#products;
+        }
     }
 
     getProductById(id) {
@@ -78,7 +84,7 @@ class ProductManager {
         if (producto) {
             return producto;
         } else {
-            return console.log("Not found");
+            return `No se encontro el producto con el id ${id}`
         }
     }
 
@@ -101,7 +107,7 @@ class ProductManager {
         const index = this.#products.findIndex(p => p.id === id);
         if (index !== -1) {
             this.#products = this.#products.filter(p => p.id !== id);
-            this.#guardarArchivos(); 
+            this.#guardarArchivos();
             console.log("El producto se ha eliminado correctamente!");
         } else {
             return `El producto con el id: ${id} no existe`;
@@ -109,4 +115,5 @@ class ProductManager {
     }
 }
 
-module.exports = ProductManager;
+
+export default ProductManager;
